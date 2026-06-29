@@ -27,7 +27,7 @@ export default function AdminPage() {
 
   async function loadReports() {
     setLoading(true);
-    const res = await fetch("/api/reports");
+    const res = await fetch("/api/reports", { cache: "no-store" });
     setReports(await res.json());
     setLoading(false);
   }
@@ -42,6 +42,7 @@ export default function AdminPage() {
 
     const res = await fetch(`/api/reports/${id}`, {
       method: "DELETE",
+      cache: "no-store",
       headers: {
         "x-admin-key": adminKey,
       },
@@ -113,4 +114,3 @@ export default function AdminPage() {
     </div>
   );
 }
-

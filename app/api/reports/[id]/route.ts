@@ -3,6 +3,9 @@ import { db } from "@/db/client";
 import { reports } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 function getAdminKey() {
   return process.env.ADMIN_KEY || "";
 }
@@ -28,4 +31,3 @@ export async function DELETE(req: NextRequest, context: { params: Promise<{ id: 
 
   return NextResponse.json({ ok: true });
 }
-

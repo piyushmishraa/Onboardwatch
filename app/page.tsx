@@ -52,8 +52,8 @@ export default function Page() {
   async function loadData() {
     setLoading(true);
     const [reportsRes, companiesRes] = await Promise.all([
-      fetch("/api/reports"),
-      fetch("/api/companies"),
+      fetch("/api/reports", { cache: "no-store" }),
+      fetch("/api/companies", { cache: "no-store" }),
     ]);
     setReports(await reportsRes.json());
     setCompanies(await companiesRes.json());
@@ -73,6 +73,7 @@ export default function Page() {
     setSubmitting(true);
     const res = await fetch("/api/reports", {
       method: "POST",
+      cache: "no-store",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ company, batchYear, status, note }),
     });

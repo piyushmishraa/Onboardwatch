@@ -5,6 +5,9 @@ import { desc, eq } from "drizzle-orm";
 import { createHash } from "crypto";
 import { containsBlockedContent } from "@/lib/blocklist";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const VALID_STATUSES = ["delayed", "onboarded", "offer_revoked", "no_update"];
 
 function hashIp(ip: string) {

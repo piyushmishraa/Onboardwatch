@@ -3,6 +3,9 @@ import { db } from "@/db/client";
 import { reports } from "@/db/schema";
 import { sql } from "drizzle-orm";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function GET() {
   const rows = await db
     .select({
