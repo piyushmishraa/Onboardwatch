@@ -20,7 +20,7 @@ and the dashboard aggregates trends per company.
    connection string.
 
 3. Copy `.env.example` to `.env.local` and paste your connection string into
-   `DATABASE_URL`.
+   `DATABASE_URL`. Set `ADMIN_KEY` to a long random secret too.
 
 4. Push the schema to your DB:
    ```
@@ -38,7 +38,7 @@ and the dashboard aggregates trends per company.
 1. Push this folder to a new GitHub repo.
 2. Go to https://vercel.com, import the repo.
 3. In Vercel project settings → Environment Variables, add `DATABASE_URL`
-   (same value as your `.env.local`).
+   (same value as your `.env.local`) and `ADMIN_KEY`.
 4. Deploy. You'll get a live URL like `onboardwatch.vercel.app`.
 
 ## What's deliberately NOT built yet (don't over-engineer before you have users)

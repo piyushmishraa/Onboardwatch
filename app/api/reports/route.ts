@@ -3,6 +3,7 @@ import { db } from "@/db/client";
 import { reports } from "@/db/schema";
 import { desc, eq } from "drizzle-orm";
 import { createHash } from "crypto";
+import { containsBlockedContent } from "@/lib/blocklist";
 
 const VALID_STATUSES = ["delayed", "onboarded", "offer_revoked", "no_update"];
 
@@ -28,6 +29,9 @@ export async function POST(req: NextRequest) {
     }
     if (company.length > 120 || (note && note.length > 500)) {
       return NextResponse.json({ error: "Input too long" }, { status: 400 });
+    }
+    if (containsBlockedContent(company) || containsBlockedContent(note)) {
+      return NextResponse.json({ error: "Note contains inappropriate content." }, { status: 400 });
     }
 
     // Lightweight spam throttle: hash the caller's IP, don't store it raw.
