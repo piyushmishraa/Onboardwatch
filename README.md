@@ -49,15 +49,5 @@ and the dashboard aggregates trends per company.
   for the first 100 reports, fix once it's actually a problem
 - No email/notification system
 
-## Validating the idea (do this before writing more code)
-1. Deploy it today.
-2. Post the link in 2-3 places where delayed freshers already gather:
-   r/developersIndia, fresher WhatsApp/Telegram groups, LinkedIn posts about
-   the Wipro/TCS/Infosys onboarding delays.
-3. Don't beg people individually to submit — see if it spreads on its own
-   after the first post. If after a week nobody outside your immediate circle
-   has submitted a report, the distribution problem is harder than the
-   product problem, and that's the thing to solve next, not more features.
-4. If it does get traction, the next real feature is verification (optional
-   screenshot upload) so the data is trustworthy enough to pitch to
-   journalists or ed-tech companies as a data source.
+
+
